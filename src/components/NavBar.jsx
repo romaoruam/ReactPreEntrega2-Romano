@@ -1,11 +1,15 @@
 import React from 'react';
 import CartWidget from './CartWidget';
+import logo from '/src/assets/altas-cumbres-logo.png';
+
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Mi Tienda</a>
+      <a className="navbar-brand" href="#">
+  <img src={logo} alt="Altas Cumbres" style={{ width: '150px', marginRight: '10px' }} />
+</a>
         <button
           className="navbar-toggler"
           type="button"
