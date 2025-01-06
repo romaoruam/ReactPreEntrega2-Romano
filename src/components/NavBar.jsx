@@ -1,15 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Importamos Link para manejar las rutas
 import CartWidget from './CartWidget';
 import logo from '/src/assets/altas-cumbres-logo.png';
-
 
 function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div className="container-fluid">
-      <a className="navbar-brand" href="#">
-  <img src={logo} alt="Altas Cumbres" style={{ width: '150px', marginRight: '10px' }} />
-</a>
+        {/* Logo que redirige a la página principal */}
+        <Link className="navbar-brand" to="/">
+          <img src={logo} alt="Altas Cumbres" style={{ width: '150px', marginRight: '10px' }} />
+        </Link>
+        {/* Botón para dispositivos móviles */}
         <button
           className="navbar-toggler"
           type="button"
@@ -21,19 +23,21 @@ function NavBar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+        {/* Menú de navegación */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="#">Inicio</a>
+              <Link className="nav-link" to="/">Inicio</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Tienda</a>
+              <Link className="nav-link" to="/category/tienda">Tienda</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Contacto</a>
+              <Link className="nav-link" to="/category/contacto">Contacto</Link>
             </li>
           </ul>
         </div>
+        {/* Carrito */}
         <CartWidget />
       </div>
     </nav>
