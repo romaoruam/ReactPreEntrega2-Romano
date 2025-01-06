@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -12,6 +13,8 @@ function App() {
         <Route path="/" element={<ItemListContainer greeting="¡Bienvenido a Mi Tienda!" />} />
         <Route path="/category/:id" element={<ItemListContainer />} />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
+        <Route path="/products" element={<ItemListContainer greeting="Todos los productos disponibles" />} />
+
       </Routes>
     </BrowserRouter>
   );

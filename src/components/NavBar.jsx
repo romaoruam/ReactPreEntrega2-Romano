@@ -27,13 +27,13 @@ function NavBar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/">Inicio</Link>
+              <Link className="nav-link" to="/products">Productos</Link> {/* Cambiamos Inicio a Productos */}
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/category/tienda">Tienda</Link>
+              <Link className="nav-link" to="/category/promociones">Promociones</Link> {/* Enlace nuevo */}
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/category/contacto">Contacto</Link>
+              <Link className="nav-link" to="/category/contacto">Contacto</Link> {/* Mantiene Contacto */}
             </li>
           </ul>
         </div>
