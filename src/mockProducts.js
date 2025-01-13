@@ -69,7 +69,7 @@ const products = [
       description: "Sándwich de miga triple relleno de atún y queso.",
       price: 10286,
       stock: 4,
-      image: "https://ramalloclub.com/wp-content/uploads/2021/03/d80b4759-cebe-498c-adea-a1f12261b2ca-800x800.jpgg",
+      image: "https://ramalloclub.com/wp-content/uploads/2021/03/d80b4759-cebe-498c-adea-a1f12261b2ca-800x800.jpg",
     },
     {
       id: 9,
@@ -78,7 +78,7 @@ const products = [
       description: "Sándwich de miga triple con queso y huevo duro.",
       price: 2000,
       stock: 10,
-      image: "https://ramalloclub.com/wp-content/uploads/2021/03/Queso-y-huevo-800x800.jpgvo.jpg",
+      image: "https://ramalloclub.com/wp-content/uploads/2021/03/Queso-y-huevo-800x800.jpg",
     },
     {
       id: 10,
