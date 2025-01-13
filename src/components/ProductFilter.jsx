@@ -1,26 +1,19 @@
-import React, { useState } from 'react';
-import { Dropdown } from 'react-bootstrap';
+import React from 'react';
 
 function ProductFilter({ onSelectCategory }) {
-  const [selectedCategory, setSelectedCategory] = useState('Todos');
-
-  const handleSelect = (eventKey) => {
-    setSelectedCategory(eventKey);
-    onSelectCategory(eventKey);
+  const handleChange = (event) => {
+    onSelectCategory(event.target.value); // Notificar al padre sobre la selección
   };
 
   return (
-    <Dropdown onSelect={handleSelect}>
-      <Dropdown.Toggle variant="primary" id="dropdown-basic">
-        {selectedCategory}
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        <Dropdown.Item eventKey="Todos">Todos</Dropdown.Item>
-        <Dropdown.Item eventKey="Clásicos">Clásicos</Dropdown.Item>
-        <Dropdown.Item eventKey="Premium">Premium</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+    <div className="mb-3">
+      <label htmlFor="categoryFilter" className="form-label">Filtrar Productos</label>
+      <select id="categoryFilter" className="form-select" onChange={handleChange}>
+        <option value="Todos">Todos</option>
+        <option value="clasicos">Clásicos</option>
+        <option value="premium">Premium</option>
+      </select>
+    </div>
   );
 }
 
