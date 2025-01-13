@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import products from '../mockProducts';
+import ProductFilter from './ProductFilter';
 
 function ItemListContainer({ greeting }) {
   const [categoryFilter, setCategoryFilter] = useState(''); // Estado para la categoría seleccionada
