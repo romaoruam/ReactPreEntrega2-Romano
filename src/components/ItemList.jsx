@@ -1,18 +1,24 @@
 import React from 'react';
-import Item from './Item';
+import { Link } from 'react-router-dom';
 
 function ItemList({ products }) {
   return (
-    <div className="row mt-4">
-      {products.length > 0 ? (
-        products.map((product) => (
-          <div key={product.id} className="col-md-4">
-            <Item product={product} />
+    <div className="row">
+      {products.map((product) => (
+        <div className="col-md-4 mb-4" key={product.id}>
+          <div className="card">
+            <img src={product.image} alt={product.name} className="image" />
+            <div className="card-body">
+              <h5 className="card-title">{product.name}</h5>
+              <p className="card-text">{product.description}</p>
+              <p className="card-text"><strong>Precio:</strong> ${product.price}</p>
+              <Link to={`/item/${product.id}`} className="btn btn-primary">
+                Ver Detalle
+              </Link>
+            </div>
           </div>
-        ))
-      ) : (
-        <p>No hay productos disponibles para esta categoría.</p>
-      )}
+        </div>
+      ))}
     </div>
   );
 }

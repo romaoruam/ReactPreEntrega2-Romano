@@ -1,50 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
 import products from '../mockProducts';
 
-function ItemListContainer({ greeting }) {
-  const { id } = useParams(); // Capturar la categoría desde la URL
-  const location = useLocation(); // Detectar si estamos en /productos
+function ItemListContainer() {
+  const { categoryId } = useParams();
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    if (id) {
-      setFilteredProducts(products.filter((product) => product.category === id));
+    if (categoryId) {
+      const filtered = products.filter(
+        (product) => product.category === categoryId
+      );
+      setFilteredProducts(filtered);
     } else {
       setFilteredProducts(products);
     }
-  }, [id]);
+  }, [categoryId]);
 
   return (
     <div className="container mt-4">
-      <h2>{greeting}</h2>
-
-      {/* Enlaces para las categorías */}
-      {location.pathname.includes('/productos') && (
-        <div className="mb-4">
-          <h5>Categorías</h5>
-          <ul className="list-inline">
-            <li className="list-inline-item">
-              <Link to="/productos">Todos</Link>
-            </li>
-            <li className="list-inline-item">
-              <Link to="/category/clasicos">Clásicos</Link>
-            </li>
-            <li className="list-inline-item">
-              <Link to="/category/premium">Premium</Link>
-            </li>
-            <li className="list-inline-item">
-              <Link to="/category/especial">Especial</Link>
-            </li>
-            <li className="list-inline-item">
-              <Link to="/category/tradicional">Tradicional</Link>
-            </li>
-          </ul>
-        </div>
-      )}
-
-      {/* Mostrar productos filtrados */}
+      <h2>{categoryId ? `Categoría: ${categoryId}` : 'Todos los Productos'}</h2>
       <ItemList products={filteredProducts} />
     </div>
   );

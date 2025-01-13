@@ -27,11 +27,18 @@ function NavBar() {
               <Link className="nav-link" to="/productos">Productos</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/sucursal">Sucursal</Link>
+              <Link className="nav-link" to="/category/clasicos">Clásicos</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contacto">Contacto</Link>
+              <Link className="nav-link" to="/category/premium">Premium</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/category/especial">Especial</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/category/tradicional">Tradicional</Link>
+            </li>
+            {/* Otros enlaces */}
           </ul>
         </div>
         <CartWidget />
@@ -41,6 +48,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-
-
