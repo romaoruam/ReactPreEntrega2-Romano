@@ -8,8 +8,13 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/" element={<ItemListContainer greeting="Bienvenidos a nuestra tienda" />} />
-        <Route path="/productos" element={<ItemListContainer greeting="Todos los productos disponibles" />} />
+        {/* Home: Solo muestra un saludo */}
+        <Route path="/" element={<div className="container mt-4"><h1>¡Bienvenidos a Altas Cumbres!</h1></div>} />
+
+        {/* Página de productos: Lista de productos con filtro */}
+        <Route path="/productos" element={<ItemListContainer greeting="Nuestros Sándwiches" />} />
+
+        {/* Rutas adicionales */}
         <Route path="/sucursal" element={<div>Sucursal (Próximamente: Enlace a Google Maps)</div>} />
         <Route path="/contacto" element={<div>Contacto (Próximamente: Formulario)</div>} />
         <Route path="/category/:id" element={<ItemListContainer greeting="Productos por categoría" />} />

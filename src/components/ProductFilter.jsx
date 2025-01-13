@@ -2,7 +2,7 @@ import React from 'react';
 
 function ProductFilter({ onSelectCategory }) {
   const handleChange = (event) => {
-    onSelectCategory(event.target.value); // Notificar al padre sobre la selección
+    onSelectCategory(event.target.value); // Comunicar la selección al padre
   };
 
   return (
@@ -11,6 +11,8 @@ function ProductFilter({ onSelectCategory }) {
       <select id="categoryFilter" className="form-select" onChange={handleChange}>
         <option value="Todos">Todos</option>
         <option value="clasicos">Clásicos</option>
+        <option value="especial">Especial</option>
+        <option value="tradicional">Tradicional</option>
         <option value="premium">Premium</option>
       </select>
     </div>
