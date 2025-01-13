@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import ItemList from './ItemList';
 import products from '../mockProducts';
 
 function ItemListContainer({ greeting }) {
-  const { id } = useParams(); // Categoría seleccionada desde la URL
-  const location = useLocation(); // Para detectar si estamos en /productos
+  const { id } = useParams(); // Capturar la categoría desde la URL
+  const location = useLocation(); // Detectar si estamos en /productos
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    // Filtrar productos por categoría o mostrar todos
     if (id) {
       setFilteredProducts(products.filter((product) => product.category === id));
     } else {
@@ -21,32 +20,31 @@ function ItemListContainer({ greeting }) {
     <div className="container mt-4">
       <h2>{greeting}</h2>
 
-      {/* Mostrar el menú de categorías solo si estamos en /productos */}
-      {location.pathname === '/productos' && (
+      {/* Enlaces para las categorías */}
+      {location.pathname.includes('/productos') && (
         <div className="mb-4">
-          <label htmlFor="categoryFilter" className="form-label">Filtrar por categoría</label>
-          <select
-            id="categoryFilter"
-            className="form-select"
-            onChange={(e) => {
-              const selectedCategory = e.target.value;
-              if (selectedCategory === 'Todos') {
-                setFilteredProducts(products);
-              } else {
-                setFilteredProducts(products.filter((product) => product.category === selectedCategory));
-              }
-            }}
-          >
-            <option value="Todos">Todos</option>
-            <option value="clasicos">Clásicos</option>
-            <option value="premium">Premium</option>
-            <option value="especial">Especial</option>
-            <option value="tradicional">Tradicional</option>
-          </select>
+          <h5>Categorías</h5>
+          <ul className="list-inline">
+            <li className="list-inline-item">
+              <Link to="/productos">Todos</Link>
+            </li>
+            <li className="list-inline-item">
+              <Link to="/category/clasicos">Clásicos</Link>
+            </li>
+            <li className="list-inline-item">
+              <Link to="/category/premium">Premium</Link>
+            </li>
+            <li className="list-inline-item">
+              <Link to="/category/especial">Especial</Link>
+            </li>
+            <li className="list-inline-item">
+              <Link to="/category/tradicional">Tradicional</Link>
+            </li>
+          </ul>
         </div>
       )}
 
-      {/* Lista de productos */}
+      {/* Mostrar productos filtrados */}
       <ItemList products={filteredProducts} />
     </div>
   );

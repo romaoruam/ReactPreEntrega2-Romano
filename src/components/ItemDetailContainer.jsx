@@ -1,50 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import ItemList from './ItemList';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import products from '../mockProducts';
 
-function ItemListContainer({ greeting }) {
-  const { id } = useParams(); // Captura la categoría desde la URL
-  const [filteredProducts, setFilteredProducts] = useState([]);
+function ItemDetailContainer() {
+  const { id } = useParams(); // Capturar el ID del producto desde la URL
+  const product = products.find((prod) => prod.id === parseInt(id));
 
-  useEffect(() => {
-    if (id) {
-      setFilteredProducts(products.filter((product) => product.category === id));
-    } else {
-      setFilteredProducts(products);
-    }
-  }, [id]);
+  if (!product) {
+    return <div>Producto no encontrado</div>;
+  }
 
   return (
     <div className="container mt-4">
-      <h2>{greeting}</h2>
-
-      {/* Enlaces para las categorías */}
-      <div className="mb-4">
-        <h5>Categorías</h5>
-        <ul className="list-inline">
-          <li className="list-inline-item">
-            <Link to="/productos">Todos</Link>
-          </li>
-          <li className="list-inline-item">
-            <Link to="/category/clasicos">Clásicos</Link>
-          </li>
-          <li className="list-inline-item">
-            <Link to="/category/premium">Premium</Link>
-          </li>
-          <li className="list-inline-item">
-            <Link to="/category/especial">Especial</Link>
-          </li>
-          <li className="list-inline-item">
-            <Link to="/category/tradicional">Tradicional</Link>
-          </li>
-        </ul>
-      </div>
-
-      {/* Lista de productos */}
-      <ItemList products={filteredProducts} />
+      <h2>{product.name}</h2>
+      <img src={product.image} alt={product.name} style={{ width: '300px', marginBottom: '20px' }} />
+      <p>{product.description}</p>
+      <p><strong>Precio:</strong> ${product.price}</p>
+      <p><strong>Stock:</strong> {product.stock}</p>
     </div>
   );
 }
 
-export default ItemListContainer;
+export default ItemDetailContainer;
