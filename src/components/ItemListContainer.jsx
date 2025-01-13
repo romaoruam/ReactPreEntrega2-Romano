@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import products from '../mockProducts';
 
 function ItemListContainer({ greeting }) {
-  const [categoryFilter, setCategoryFilter] = useState(''); // Estado para guardar la categoría seleccionada
+  const [categoryFilter, setCategoryFilter] = useState(''); // Estado para la categoría seleccionada
 
   // Filtrar productos según la categoría seleccionada
   const filteredProducts = categoryFilter
@@ -21,7 +21,7 @@ function ItemListContainer({ greeting }) {
           id="categoryFilter"
           className="form-select"
           value={categoryFilter}
-          onChange={(e) => setCategoryFilter(e.target.value)} // Cambiar el filtro según la selección
+          onChange={(e) => setCategoryFilter(e.target.value)} // Actualiza el filtro según la selección
         >
           <option value="">Todos</option>
           <option value="clasicos">Clásicos</option>
@@ -51,3 +51,4 @@ function ItemListContainer({ greeting }) {
 }
 
 export default ItemListContainer;
+
