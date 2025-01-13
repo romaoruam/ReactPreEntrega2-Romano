@@ -2,7 +2,7 @@ import React from 'react';
 
 function ProductFilter({ onSelectCategory }) {
   const handleChange = (event) => {
-    onSelectCategory(event.target.value); // Comunicar la selección al padre
+    onSelectCategory(event.target.value);
   };
 
   return (
