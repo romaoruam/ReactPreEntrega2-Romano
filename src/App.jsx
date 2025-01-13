@@ -11,17 +11,17 @@ function App() {
         {/* Home */}
         <Route path="/" element={<div className="container mt-4"><h1>¡Bienvenidos a Altas Cumbres!</h1></div>} />
 
-        {/* Productos: Lista de todos los productos */}
-        <Route path="/productos" element={<ItemListContainer greeting="Nuestros Productos" />} />
+        {/* Productos */}
+        <Route path="/productos" element={<ItemListContainer greeting="Todos los Productos" />} />
 
-        {/* Categorías: Filtrado por categoría */}
-        <Route path="/category/:id" element={<ItemListContainer greeting="Productos por Categoría" />} />
+        {/* Filtrado por Categorías */}
+        <Route path="/category/:id" element={<ItemListContainer greeting="Productos Filtrados" />} />
 
-        {/* Detalle del producto */}
+        {/* Detalle del Producto */}
         <Route path="/item/:id" element={<ItemDetailContainer />} />
 
-        {/* Ruta para manejar errores */}
-        <Route path="*" element={<div>404 - Página no encontrada</div>} />
+        {/* Ruta 404 */}
+        <Route path="*" element={<div className="container mt-4"><h2>404 - Página no encontrada</h2></div>} />
       </Routes>
     </BrowserRouter>
   );
